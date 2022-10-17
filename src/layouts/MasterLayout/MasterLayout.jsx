@@ -1,8 +1,11 @@
+import { Outlet } from 'react-router-dom';
 import Navigation from '../components/Navigation';
 
-export const MasterLayout = ({ children }) => (
+const MasterLayout = () => (
     <>
         <Navigation />
-        {children}
+        <Outlet/>
     </>
 );
+
+export default MasterLayout;
