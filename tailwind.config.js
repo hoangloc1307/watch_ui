@@ -4,10 +4,14 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                primary: '#33cccc',
+                primary: 'var(--color-primary)',
+                dark: 'var(--color-black)',
             },
             spacing: {
                 'my-navigation-height': 'var(--navigation-height)',
+            },
+            fontFamily: {
+                nunito: ['Nunito', 'sans-serif'],
             },
         },
     },

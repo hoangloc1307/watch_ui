@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,9 +7,37 @@
 @layer base {
     :root {
         --navigation-height: 64px;
+
+        /* Scrollbar */
+        --scrollbar-thumb-color: #fd79a8;
+        --scrollbar-thumb-radius: 10px;
+        --scrollbar-width: 5px;
+
+        /* Color */
+        --color-primary: #fd79a8;
+        --color-black: #636e72;
     }
 
-    * {
+    /* Google font icon */
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 40;
+    }
+    .fill.material-symbols-outlined {
+        font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 40;
+    }
+
+    body {
         -webkit-tap-highlight-color: transparent;
+        font-family: 'Nunito', sans-serif;
+        color: var(--color-black);
+    }
+
+    /* Scroll bar */
+    ::-webkit-scrollbar {
+        width: var(--scrollbar-width);
+    }
+    ::-webkit-scrollbar-thumb {
+        background: var(--scrollbar-thumb-color);
+        border-radius: var(--scrollbar-thumb-radius);
     }
 }

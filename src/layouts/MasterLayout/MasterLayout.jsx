@@ -4,7 +4,10 @@ import Navigation from '../components/Navigation';
 const MasterLayout = () => (
     <>
         <Navigation />
-        <Outlet/>
+        <div className="bg-blue-300 h-10">TOPBAR</div>
+        <main className="min-h-screen bg-red-300">
+            <Outlet />
+        </main>
     </>
 );
 
