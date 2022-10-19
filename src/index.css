@@ -9,13 +9,13 @@
         --navigation-height: 64px;
 
         /* Scrollbar */
-        --scrollbar-thumb-color: #fd79a8;
+        --scrollbar-thumb-color: #f7abc5;
         --scrollbar-thumb-radius: 10px;
         --scrollbar-width: 5px;
 
         /* Color */
-        --color-primary: #fd79a8;
-        --color-black: #636e72;
+        --color-primary: 253 121 168;
+        --color-black: 99 110 114;
     }
 
     /* Google font icon */
@@ -28,8 +28,9 @@
 
     body {
         -webkit-tap-highlight-color: transparent;
+        user-select: none;
         font-family: 'Nunito', sans-serif;
-        color: var(--color-black);
+        color: rgb(var(--color-black) / 1);
     }
 
     /* Scroll bar */
@@ -39,5 +40,19 @@
     ::-webkit-scrollbar-thumb {
         background: var(--scrollbar-thumb-color);
         border-radius: var(--scrollbar-thumb-radius);
+    }
+}
+
+@layer components {
+    .my-container {
+        @apply w-full px-4;
+    }
+
+    .bullet {
+        @apply inline-block w-2 h-2 mx-0.5 p-1 rounded-full bg-primary bg-opacity-20;
+    }
+
+    .bullet-active {
+        @apply bg-primary bg-opacity-60 p-[5px];
     }
 }

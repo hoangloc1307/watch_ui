@@ -4,14 +4,17 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                primary: 'var(--color-primary)',
-                dark: 'var(--color-black)',
-            },
-            spacing: {
-                'my-navigation-height': 'var(--navigation-height)',
+                primary: 'rgb(var(--color-primary) / <alpha-value>)',
             },
             fontFamily: {
                 nunito: ['Nunito', 'sans-serif'],
+            },
+            transitionProperty: {
+                height: 'height',
+            },
+            spacing: {
+                'my-navigation-height': 'var(--navigation-height)',
+                'my-cart-item-height': 'calc(100vh - 136px - var(--navigation-height))',
             },
         },
     },
