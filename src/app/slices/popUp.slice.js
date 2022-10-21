@@ -1,9 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    menu: false,
-    cart: false,
-    profile: false,
+    navigation: false,
+    items: {
+        menu: false,
+        cart: false,
+        profile: false,
+        search: false,
+    },
 };
 
 const popUpSlice = createSlice({
@@ -11,9 +15,9 @@ const popUpSlice = createSlice({
     initialState,
     reducers: {
         hideAllPopUp: (state, action) => {
-            Object.keys(state).forEach(key => {
-                if (state[key]) {
-                    state[key] = false;
+            Object.keys(state.items).forEach(key => {
+                if (state.items[key]) {
+                    state.items[key] = false;
                 }
             });
         },
@@ -21,15 +25,20 @@ const popUpSlice = createSlice({
             const { popUp, show } = action.payload;
 
             if (show) {
-                state[popUp] = false;
+                state.items[popUp] = false;
+                document.body.style.overflow = 'unset';
             } else {
                 popUpSlice.caseReducers.hideAllPopUp(state);
-                state[popUp] = true;
+                state.items[popUp] = true;
+                document.body.style.overflow = 'hidden';
             }
+        },
+        toggleNavigation: (state, action) => {
+            state.navigation = action.payload;
         },
     },
 });
 
-export const { hideAllPopUp, togglePopUp } = popUpSlice.actions;
+export const { hideAllPopUp, togglePopUp, toggleNavigation } = popUpSlice.actions;
 
 export default popUpSlice.reducer;

@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { togglePopUp } from '../../app/slices/popUp.slice';
 
+import { togglePopUp } from '../../app/slices/popUp.slice';
 import { menu } from '../../assets/datas';
 import { logo } from '../../assets/images';
 import MenuItem from './MenuItem';
@@ -9,7 +9,8 @@ import MenuItem from './MenuItem';
 const Menu = () => {
     const dispatch = useDispatch();
 
-    const show = useSelector(state => state.popup.menu);
+    const show = useSelector(state => state.popup.items.menu);
+    const navigationShow = useSelector(state => state.popup.navigation);
 
     return (
         <div id="menu">
@@ -24,17 +25,17 @@ const Menu = () => {
 
             {/* Overlay */}
             <span
-                className={`fixed top-0 left-0 bottom-my-navigation-height w-screen bg-black bg-opacity-40 ${
-                    show
-                        ? 'opacity-100 [transition:opacity_0.3s_0.3s_ease-in-out] pointer-events-auto'
-                        : 'opacity-0 [transition:opacity_0.3s_ease-in-out] pointer-events-none'
-                }`}
+                className={`fixed top-0 left-0 right-0 ${
+                    navigationShow ? 'bottom-my-navigation-height' : 'bottom-0'
+                } bg-black bg-opacity-40 ${show ? 'overlay-show ' : 'overlay-hide'}`}
                 onClick={() => dispatch(togglePopUp({ popUp: 'menu', show }))}
             />
 
             {/* Menu */}
             <div
-                className={`fixed left-0 top-0 bottom-my-navigation-height w-[250px] overflow-auto bg-white p-4 duration-700 ease-in-out ${
+                className={`fixed left-0 top-0 ${
+                    navigationShow ? 'bottom-my-navigation-height' : 'bottom-0'
+                } w-[250px] overflow-scroll bg-white p-4 duration-700 ease-in-out ${
                     show ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
                 }`}
             >

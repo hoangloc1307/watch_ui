@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Dancing+Script:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -31,11 +31,13 @@
         user-select: none;
         font-family: 'Nunito', sans-serif;
         color: rgb(var(--color-black) / 1);
+        /* background-color: theme(colors.slate.100); */
     }
 
     /* Scroll bar */
     ::-webkit-scrollbar {
         width: var(--scrollbar-width);
+        height: var(--scrollbar-width);
     }
     ::-webkit-scrollbar-thumb {
         background: var(--scrollbar-thumb-color);
@@ -48,11 +50,23 @@
         @apply w-full px-4;
     }
 
+    .my-container-item-full {
+        @apply w-screen relative -left-4 overflow-x-scroll;
+    }
+
     .bullet {
-        @apply inline-block w-2 h-2 mx-0.5 p-1 rounded-full bg-primary bg-opacity-20;
+        @apply inline-block mx-0.5 p-[3px] rounded-full bg-primary bg-opacity-20;
     }
 
     .bullet-active {
-        @apply bg-primary bg-opacity-60 p-[5px];
+        @apply bg-primary bg-opacity-60 p-[4px];
+    }
+
+    .overlay-show {
+        @apply opacity-100 [transition:opacity_0.3s_0.3s_ease-in-out] pointer-events-auto;
+    }
+
+    .overlay-hide {
+        @apply opacity-0 [transition:opacity_0.3s_ease-in-out] pointer-events-none;
     }
 }

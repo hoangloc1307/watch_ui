@@ -4,7 +4,7 @@ import Navigation from '../components/Navigation';
 const MasterLayout = () => (
     <>
         <Navigation />
-        <main className="relative">
+        <main className="relative mb-my-navigation-height min-h-screen">
             <Outlet />
         </main>
     </>

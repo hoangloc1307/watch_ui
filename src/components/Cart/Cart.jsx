@@ -6,7 +6,8 @@ import CartItem from './CartItem';
 const Cart = () => {
     const dispatch = useDispatch();
 
-    const show = useSelector(state => state.popup.cart);
+    const show = useSelector(state => state.popup.items.cart);
+    const navigationShow = useSelector(state => state.popup.navigation);
 
     return (
         <div id="cart">
@@ -21,17 +22,17 @@ const Cart = () => {
 
             {/* Overlay */}
             <span
-                className={`fixed top-0 left-0 right-0 bottom-my-navigation-height bg-black bg-opacity-40 ${
-                    show
-                        ? 'opacity-100 [transition:opacity_0.3s_0.3s_ease-in-out] pointer-events-auto'
-                        : 'opacity-0 [transition:opacity_0.3s_ease-in-out] pointer-events-none'
-                }`}
+                className={`fixed top-0 left-0 right-0 ${
+                    navigationShow ? 'bottom-my-navigation-height' : 'bottom-0'
+                } bg-black bg-opacity-40 ${show ? 'overlay-show ' : 'overlay-hide'}`}
                 onClick={() => dispatch(togglePopUp({ popUp: 'cart', show }))}
             />
 
             {/* Cart */}
             <div
-                className={`fixed right-0 top-0 bottom-my-navigation-height w-[300px] overflow-auto bg-slate-100 duration-700 ease-in-out ${
+                className={`fixed right-0 top-0 ${
+                    navigationShow ? 'bottom-my-navigation-height' : 'bottom-0'
+                } w-[300px] overflow-auto bg-slate-100 duration-700 ease-in-out ${
                     show ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
                 }`}
             >
@@ -39,7 +40,11 @@ const Cart = () => {
                     My Cart
                 </h2>
                 {/* Cart items */}
-                <div className="p-2 flex flex-col gap-2 h-my-cart-item-height overflow-y-auto">
+                <div
+                    className={`p-2 flex flex-col gap-2 ${
+                        navigationShow ? 'h-my-cart-item-height-show' : 'h-my-cart-item-height-hide'
+                    } overflow-y-auto duration-1000`}
+                >
                     {[
                         { image: product1, name: 'Cart Item 1 With Long Name', price: 3100000, amount: 1 },
                         { image: product2, name: 'Cart Item 2 ', price: 3100000, amount: 12 },

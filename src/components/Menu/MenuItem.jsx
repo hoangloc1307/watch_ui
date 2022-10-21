@@ -6,7 +6,7 @@ const MenuItem = ({ item }) => {
     const { pathname } = useLocation();
     const [showChildren, setShowChildren] = useState(false);
 
-    const show = useSelector(state => state.popup.menu);
+    const show = useSelector(state => state.popup.items.menu);
 
     useEffect(() => {
         if (show) {
