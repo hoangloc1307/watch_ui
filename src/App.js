@@ -10,7 +10,6 @@ const App = () => {
 
     window.onload = () => {
         setLoaded(true);
-        alert('ok');
     };
 
     return (
