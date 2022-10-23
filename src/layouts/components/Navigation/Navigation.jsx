@@ -51,7 +51,7 @@ const Navigation = () => {
                     pathname === '/' ? 'bg-opacity-20 absolute top-0 left-0 right-0 z-10' : ''
                 }`}
             >
-                <div className="my-container flex justify-between items-center py-1">
+                <div className="my-container flex justify-between items-center">
                     <span
                         className="material-symbols-outlined pr-2 pt-2 pb-2"
                         onClick={() => dispatch(togglePopUp({ popUp: 'menu', showMenu }))}
@@ -78,7 +78,7 @@ const Navigation = () => {
                     </Link>
                     <Menu />
                     <Cart />
-                    <Link to="/" className={`p-1 flex flex-col items-center`}>
+                    <Link to={false ? '/' : '/login'} className={`p-1 flex flex-col items-center`}>
                         <span className="material-symbols-outlined">person</span>
                         <span className="text-sm">Me</span>
                     </Link>

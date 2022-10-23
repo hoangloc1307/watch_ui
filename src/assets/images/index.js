@@ -1,6 +1,7 @@
 // Logo
 export const logo = require('./logo.png');
 export const logoWhite = require('./logo_white.png');
+export const logoBlack = require('./logo_black.png');
 // Product
 export const product1 = require('./product1.png');
 export const product11 = require('./product11.png');

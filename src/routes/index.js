@@ -3,6 +3,7 @@ import Blogs from '../pages/Blogs';
 import Category from '../pages/Category';
 import Gallery from '../pages/Gallery';
 import Home from '../pages/Home';
+import Login from '../pages/Login';
 
 export const publicRoute = [
     { path: '/', component: Home },
@@ -15,3 +16,5 @@ export const publicRoute = [
     // { path: '/search', component: SearchResult },
     // { path: '*', component: PageNotFound },
 ];
+
+export const restrictRoute = [{ path: '/login', component: Login }];
