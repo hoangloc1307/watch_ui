@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { togglePopUp } from '../../app/slices/popUp.slice';
-import { menu } from '../../assets/datas';
-import { logo } from '../../assets/images';
+import { togglePopUp } from '~/app/slices/popUp.slice';
+import { menu } from '~/assets/datas';
+import { logo } from '~/assets/images';
 import MenuItem from './MenuItem';
 
 const Menu = () => {

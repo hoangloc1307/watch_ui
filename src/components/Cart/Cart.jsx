@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { togglePopUp } from '../../app/slices/popUp.slice';
-import { product1, product2, product3 } from '../../assets/images';
+
+import { togglePopUp } from '~/app/slices/popUp.slice';
+import { product1, product2, product3 } from '~/assets/images';
 import CartItem from './CartItem';
 
 const Cart = () => {
@@ -36,7 +37,7 @@ const Cart = () => {
                     show ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
                 }`}
             >
-                <h2 className="text-sm font-normal capitalize text-center p-4 h-14 border-b-2 border-primary border-opacity-30 rounded-b-xl bg-white">
+                <h2 className="text-sm font-normal font-poppins capitalize text-center p-4 h-14 border-b-2 border-primary border-opacity-30 rounded-b-xl bg-white">
                     My Cart
                 </h2>
                 {/* Cart items */}
@@ -58,12 +59,12 @@ const Cart = () => {
                 </div>
                 {/* Total */}
                 <div className="flex justify-between items-center p-4 h-20 border-t-2 border-primary border-opacity-30 rounded-t-xl bg-white">
-                    <p className="font-semibold tracking-widest">
+                    <p className="font-semibold tracking-widest text-primary italic">
                         180,000,000<sup>đ</sup>
                     </p>
                     <button className="flex items-center justify-center gap-1 bg-primary text-white w-32 py-2 rounded-lg active:bg-opacity-80">
                         <span className="material-symbols-outlined text-base">shopping_cart_checkout</span>
-                        <span>Checkout</span>
+                        <span className="font-poppins text-sm">Checkout</span>
                     </button>
                 </div>
             </div>

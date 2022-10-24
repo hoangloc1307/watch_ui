@@ -11,5 +11,7 @@ export const product3 = require('./product3.png');
 export const product33 = require('./product33.png');
 // Banner
 export const banner1 = require('./banner1.jpg');
-export const banner2 = require('./banner2.jpg');
-export const banner3 = require('./banner3.jpg');
+//Icon
+export const icon1 = require('./icon1.png');
+export const icon2 = require('./icon2.png');
+export const icon3 = require('./icon3.png');

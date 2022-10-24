@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
+import AnimateHeight from 'react-animate-height';
 import { useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -59,18 +60,18 @@ const MenuItem = ({ item }) => {
 
             {/* Children */}
             {Tag === 'div' && item.children && (
-                <div
-                    className={`ml-5 overflow-hidden transition-height duration-500 ease-in-out ${
-                        showChildren ? `h-[${item.children.length * 40 + (item.children.length + 1) * 8}px]` : 'h-0'
-                    }`}
+                <AnimateHeight
+                    className={`ml-5 overflow-hidden`}
+                    duration={500}
+                    height={showChildren ? item.children.length * 40 + (item.children.length + 1) * 8 : 0}
                 >
                     {item.children.map(i => (
                         <MenuItem key={i.id} item={i} />
                     ))}
-                </div>
+                </AnimateHeight>
             )}
         </div>
     );
 };
 
-export default MenuItem;
+export default memo(MenuItem);

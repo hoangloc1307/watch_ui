@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { Autoplay, Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { banner1, banner2, banner3 } from '../../assets/images';
+import { banner1, banner2, banner3 } from '~/assets/images';
 
 const BannerSlider = () => {
     const refPrevButton = useRef();

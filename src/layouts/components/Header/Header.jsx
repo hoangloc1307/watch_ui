@@ -2,16 +2,17 @@ import { useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import Menu from '../../../components/Menu';
-import Cart from '../../../components/Cart';
-import { hideAllPopUp, toggleNavigation, togglePopUp } from '../../../app/slices/popUp.slice';
-import { logoWhite } from '../../../assets/images';
-import Search from '../../../components/Search';
+import Menu from '../Menu';
+import Cart from '~/components/Cart';
+import { hideAllPopUp, toggleNavigation, togglePopUp } from '~/app/slices/popUp.slice';
+import { logoWhite } from '~/assets/images';
+import Search from '~/components/Search';
 
-const Navigation = () => {
+const Header = () => {
     const { pathname } = useLocation();
     const dispatch = useDispatch();
     const refTopBar = useRef(null);
+
     const showNavigation = useSelector(state => state.popup.navigation);
     const showMenu = useSelector(state => state.popup.items.menu);
 
@@ -43,12 +44,12 @@ const Navigation = () => {
     }, [showNavigation]);
 
     return (
-        <>
+        <header>
             {/* Topbar */}
-            <div
+            <nav
                 ref={refTopBar}
                 className={`bg-black text-white ${
-                    pathname === '/' ? 'bg-opacity-20 absolute top-0 left-0 right-0 z-10' : ''
+                    pathname === '/' ? 'absolute top-0 left-0 right-0 z-10' : 'relative'
                 }`}
             >
                 <div className="my-container flex justify-between items-center">
@@ -63,10 +64,10 @@ const Navigation = () => {
                     </Link>
                     <Search />
                 </div>
-            </div>
+            </nav>
 
             {/* Bottom navigation */}
-            <div
+            <nav
                 className={`fixed left-0 w-full bottom-0 z-10 shadow-[0_0_2px_0_#ccc] overflow-hidden ${
                     showNavigation ? 'duration-500 h-my-navigation-height' : 'h-0'
                 } bg-white`}
@@ -83,9 +84,9 @@ const Navigation = () => {
                         <span className="text-sm">Me</span>
                     </Link>
                 </div>
-            </div>
-        </>
+            </nav>
+        </header>
     );
 };
 
-export default Navigation;
+export default Header;

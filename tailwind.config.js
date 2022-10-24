@@ -5,10 +5,12 @@ module.exports = {
         extend: {
             colors: {
                 primary: 'rgb(var(--color-primary) / <alpha-value>)',
+                dark: 'rgb(var(--color-dark) / <alpha-value>)',
             },
             fontFamily: {
                 nunito: ['Nunito', 'sans-serif'],
                 'dancing-script': ['Dancing Script', 'cursive'],
+                poppins: ['Poppins', 'sans-serif'],
             },
             transitionProperty: {
                 height: 'height',
