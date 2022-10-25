@@ -16,13 +16,13 @@ const Footer = () => {
     };
 
     return (
-        <footer className="mb-[90px]">
+        <footer className="mb-my-navigation-height py-10 bg-[#3a3b3c] text-white lg:mb-0">
             <div className="my-container">
                 {/* Newsletter */}
                 <Newsletter />
 
-                {/* Menu footer */}
-                <div className="my-10 md:grid md:grid-cols-4">
+                {/* Menu footer mobile */}
+                <div className="my-10 md:hidden">
                     {menuFooter.map((item, index) => (
                         <div key={index} className="my-4">
                             <h3
@@ -55,13 +55,33 @@ const Footer = () => {
                     ))}
                 </div>
 
+                {/* Menu footer table */}
+                <div className="hidden my-10 md:grid md:grid-cols-4">
+                    {menuFooter.map((item, index) => (
+                        <div key={index} className="text-center px-4">
+                            <h3 className={`uppercase text-sm font-medium font-poppins mb-4`}>{item.titleen}</h3>
+                            <div>
+                                {item.list.map((listItem, index) => (
+                                    <Link
+                                        key={index}
+                                        to={'/'}
+                                        className="block py-2 text-sm hover:text-primary hover:underline"
+                                    >
+                                        {listItem.titleen}
+                                    </Link>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
                 {/* Showrooms */}
                 <div>
                     {showrooms.map((item, index) => (
-                        <div key={index} className="text-center text-black my-8">
-                            <h3 className="uppercase text-sm font-semibold">{item.nameen}</h3>
-                            <p className="text-sm my-1">Address: {item.addressen}</p>
-                            <p className="text-sm">Hotline: {item.hotline}</p>
+                        <div key={index} className="text-center my-8">
+                            <h3 className="uppercase text-xs font-bold md:text-sm">{item.nameen}</h3>
+                            <p className="text-xs my-1 md:text-sm">Address: {item.addressen}</p>
+                            <p className="text-xs md:text-sm">Hotline: {item.hotline}</p>
                         </div>
                     ))}
                 </div>

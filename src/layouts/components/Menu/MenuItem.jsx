@@ -61,7 +61,7 @@ const MenuItem = ({ item }) => {
             {/* Children */}
             {Tag === 'div' && item.children && (
                 <AnimateHeight
-                    className={`ml-5 overflow-hidden`}
+                    className={`ml-4 border-l border-l-primary overflow-hidden`}
                     duration={500}
                     height={showChildren ? item.children.length * 40 + (item.children.length + 1) * 8 : 0}
                 >

@@ -5,7 +5,7 @@ import Header from '../components/Header';
 const MasterLayout = () => (
     <>
         <Header />
-        <main className="relative mt-10">
+        <main className="relative mt-10 lg:mt-0">
             <Outlet />
         </main>
         <Footer />

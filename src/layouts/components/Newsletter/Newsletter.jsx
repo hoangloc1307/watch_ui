@@ -38,7 +38,7 @@ const Newsletter = () => {
                 </p>
                 <button
                     type="submit"
-                    className="absolute right-0 top-0 bottom-0 w-20 bg-primary text-white text-xs tracking-wider font-poppins rounded-r-lg md:text-sm"
+                    className="absolute right-0 top-0 bottom-0 w-20 bg-primary bg-opacity-80 text-white text-xs tracking-wider font-poppins rounded-r-lg hover:bg-opacity-100 md:text-sm"
                 >
                     Follow
                 </button>

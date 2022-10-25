@@ -12,20 +12,33 @@ const Cart = () => {
 
     return (
         <div id="cart">
-            {/* Icons */}
+            {/* Icon mobile */}
             <span
-                className={`p-1 flex flex-col items-center cursor-pointer ${show && 'text-primary'}`}
+                className={`p-1 flex flex-col items-center cursor-pointer lg:hidden ${show && 'text-primary'}`}
                 onClick={() => dispatch(togglePopUp({ popUp: 'cart', show }))}
             >
-                <span className={`${show && 'fill'} material-symbols-outlined`}>shopping_cart</span>
+                <span
+                    className={`${show && 'fill'} material-symbols-outlined`}
+                    onClick={() => dispatch(togglePopUp({ popUp: 'cart', show }))}
+                >
+                    shopping_cart
+                </span>
                 <span className="text-sm">Cart</span>
+            </span>
+
+            {/* Icon desktop */}
+            <span
+                className="material-symbols-outlined hidden text-3xl p-2 text-white cursor-pointer lg:block lg:pr-0"
+                onClick={() => dispatch(togglePopUp({ popUp: 'cart', show }))}
+            >
+                shopping_bag
             </span>
 
             {/* Overlay */}
             <span
                 className={`fixed top-0 left-0 right-0 ${
                     navigationShow ? 'bottom-my-navigation-height' : 'bottom-0'
-                } bg-black bg-opacity-40 ${show ? 'overlay-show ' : 'overlay-hide'}`}
+                } bg-black bg-opacity-40 ${show ? 'overlay-show ' : 'overlay-hide'} lg:inset-0`}
                 onClick={() => dispatch(togglePopUp({ popUp: 'cart', show }))}
             />
 
@@ -35,16 +48,22 @@ const Cart = () => {
                     navigationShow ? 'bottom-my-navigation-height' : 'bottom-0'
                 } w-[300px] overflow-auto bg-slate-100 duration-700 ease-in-out ${
                     show ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
-                }`}
+                } lg:bottom-0 lg:w-[500px]`}
             >
-                <h2 className="text-sm font-normal font-poppins capitalize text-center p-4 h-14 border-b-2 border-primary border-opacity-30 rounded-b-xl bg-white">
+                <h2 className="text-sm font-normal font-poppins capitalize text-center p-4 h-14 border-b-2 border-primary border-opacity-30 rounded-b-xl bg-white relative">
+                    <span
+                        className="material-symbols-outlined absolute left-0 top-1/2 -translate-y-1/2 p-4 cursor-pointer hover:text-primary active:text-primary"
+                        onClick={() => dispatch(togglePopUp({ popUp: 'cart', show }))}
+                    >
+                        chevron_left
+                    </span>{' '}
                     My Cart
                 </h2>
                 {/* Cart items */}
                 <div
                     className={`p-2 flex flex-col gap-2 ${
                         navigationShow ? 'h-my-cart-item-height-show' : 'h-my-cart-item-height-hide'
-                    } overflow-y-auto duration-1000`}
+                    } overflow-y-auto duration-1000 lg:h-my-cart-item-height-hide`}
                 >
                     {[
                         { image: product1, name: 'Cart Item 1 With Long Name', price: 3100000, amount: 1 },

@@ -5,23 +5,25 @@ const Search = () => {
 
     return (
         <div>
+            {/* Icon */}
             <span
-                className="material-symbols-outlined pl-2 pt-2 pb-2"
+                className="material-symbols-outlined pl-2 pt-2 pb-2 cursor-pointer active:text-primary lg:text-white lg:text-3xl lg:p-2 lg:pl-0"
                 onClick={() => {
                     setShow(!show);
                 }}
             >
                 search
             </span>
+            {/* Search box */}
             {show && (
-                <div className="absolute top-full right-0 w-full max-w-lg">
+                <div className="absolute top-full right-0 w-full max-w-lg z-10 lg:left-8">
                     <input
                         type="text"
                         placeholder="Enter keyword to search..."
-                        className="w-full outline-none text-black text-xm py-2 pl-4 pr-28"
+                        className="w-full outline-none text-black text-xm py-2 pl-4 pr-28 lg:rounded-lg"
                     />
-                    <button className="absolute top-0 bottom-0 right-0 px-4 w-24 bg-primary text-center text-sm font-normal tracking-wider">
-                        Tìm kiếm
+                    <button className="absolute top-0 bottom-0 right-0 px-4 w-24 bg-primary bg-opacity-80 text-center text-sm text-white font-normal tracking-wider active:bg-opacity-100 hover:bg-opacity-100 lg:rounded-r-lg">
+                        Search
                     </button>
                 </div>
             )}

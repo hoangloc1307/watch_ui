@@ -30,7 +30,7 @@
         -webkit-tap-highlight-color: transparent;
         user-select: none;
         font-family: 'Nunito', sans-serif;
-        color: rgb(var(--color-black) / 1);
+        color: rgb(var(--color-dark) / 1);
         /* background-color: theme(colors.slate.100); */
     }
 
@@ -47,11 +47,11 @@
 
 @layer components {
     .my-container {
-        @apply w-full px-4 lg:px-10 xl:max-w-screen-xl xl:mx-auto xl:px-0;
+        @apply mx-auto px-4 max-w-7xl sm:px-6 md:px-8 xl:p-0;
     }
 
-    .my-container-item-full {
-        @apply w-screen relative -left-4 overflow-x-scroll md:w-full md:left-0 md:overflow-hidden;
+    .my-container-full {
+        @apply w-[calc(100vw-5px)] relative overflow-x-scroll left-1/2 -translate-x-1/2 lg:w-full;
     }
 
     .bullet {

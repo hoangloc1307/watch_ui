@@ -5,6 +5,8 @@ export const menu = [
         title: 'The box',
         multilangTitle: 'menu.box',
         icon: 'inventory_2',
+        mobile: true,
+        desktop: true,
     },
     {
         id: 2,
@@ -12,6 +14,8 @@ export const menu = [
         title: 'Man',
         multilangTitle: 'menu.man',
         icon: 'male',
+        mobile: true,
+        desktop: true,
     },
     {
         id: 3,
@@ -19,6 +23,8 @@ export const menu = [
         title: 'Woman',
         multilangTitle: 'menu.woman',
         icon: 'female',
+        mobile: true,
+        desktop: true,
     },
     {
         id: 4,
@@ -26,6 +32,8 @@ export const menu = [
         title: 'Accessory',
         multilangTitle: 'menu.accessory',
         icon: 'watch',
+        mobile: true,
+        desktop: true,
     },
     {
         id: 5,
@@ -33,6 +41,8 @@ export const menu = [
         title: 'Gallery',
         multilangTitle: 'menu.gallery',
         icon: 'photo_library',
+        mobile: true,
+        desktop: true,
     },
     {
         id: 6,
@@ -40,6 +50,8 @@ export const menu = [
         title: 'Blogs',
         multilangTitle: 'menu.blogs',
         icon: 'newspaper',
+        mobile: true,
+        desktop: true,
     },
     {
         id: 7,
@@ -47,6 +59,8 @@ export const menu = [
         title: 'About us',
         multilangTitle: 'menu.aboutUs',
         icon: 'contact_page',
+        mobile: true,
+        desktop: true,
     },
     {
         id: 8,
@@ -54,6 +68,8 @@ export const menu = [
         title: 'Language',
         multilangTitle: 'menu.language',
         icon: 'language',
+        mobile: true,
+        desktop: false,
         children: [
             {
                 id: 1,
@@ -61,6 +77,8 @@ export const menu = [
                 title: 'English',
                 multilangTitle: 'menu.english',
                 icon: 'translate',
+                mobile: true,
+                desktop: false,
             },
             {
                 id: 2,
@@ -68,6 +86,8 @@ export const menu = [
                 title: 'Vietnamese',
                 multilangTitle: 'menu.vietnamese',
                 icon: 'translate',
+                mobile: true,
+                desktop: false,
             },
         ],
     },
