@@ -1,7 +1,8 @@
 export const menu = [
     {
         id: 1,
-        href: '/category/box',
+        to: '/category/box',
+        href: '',
         title: 'The box',
         multilangTitle: 'menu.box',
         icon: 'inventory_2',
@@ -10,7 +11,8 @@ export const menu = [
     },
     {
         id: 2,
-        href: '/category/man',
+        to: '/category/man',
+        href: '',
         title: 'Man',
         multilangTitle: 'menu.man',
         icon: 'male',
@@ -19,7 +21,8 @@ export const menu = [
     },
     {
         id: 3,
-        href: '/category/woman',
+        to: '/category/woman',
+        href: '',
         title: 'Woman',
         multilangTitle: 'menu.woman',
         icon: 'female',
@@ -28,7 +31,8 @@ export const menu = [
     },
     {
         id: 4,
-        href: '/category/accessory',
+        to: '/category/accessory',
+        href: '',
         title: 'Accessory',
         multilangTitle: 'menu.accessory',
         icon: 'watch',
@@ -37,7 +41,8 @@ export const menu = [
     },
     {
         id: 5,
-        href: '/gallery',
+        to: '/gallery',
+        href: '',
         title: 'Gallery',
         multilangTitle: 'menu.gallery',
         icon: 'photo_library',
@@ -46,7 +51,8 @@ export const menu = [
     },
     {
         id: 6,
-        href: '/blogs',
+        to: '/blogs',
+        href: '',
         title: 'Blogs',
         multilangTitle: 'menu.blogs',
         icon: 'newspaper',
@@ -55,7 +61,8 @@ export const menu = [
     },
     {
         id: 7,
-        href: '/about',
+        to: '/about',
+        href: '',
         title: 'About us',
         multilangTitle: 'menu.aboutUs',
         icon: 'contact_page',
@@ -64,6 +71,7 @@ export const menu = [
     },
     {
         id: 8,
+        to: '',
         href: '',
         title: 'Language',
         multilangTitle: 'menu.language',
@@ -73,6 +81,7 @@ export const menu = [
         children: [
             {
                 id: 1,
+                to: '',
                 href: '',
                 title: 'English',
                 multilangTitle: 'menu.english',
@@ -82,6 +91,7 @@ export const menu = [
             },
             {
                 id: 2,
+                to: '',
                 href: '',
                 title: 'Vietnamese',
                 multilangTitle: 'menu.vietnamese',

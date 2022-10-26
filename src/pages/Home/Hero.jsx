@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import { dyoss, hero } from '~/assets/videos';
+import Button from '~/components/Button';
 
 const Hero = () => {
     const [showVideo, setShowVideo] = useState(false);
@@ -11,7 +12,7 @@ const Hero = () => {
     };
 
     return (
-        <div className="-mt-10 lg:-mt-[157px]">
+        <div className="-mt-10 lg:-mt-[138px]">
             <div className="relative">
                 {/* Video hero */}
                 <video
@@ -20,7 +21,7 @@ const Hero = () => {
                     autoPlay
                     loop
                     muted
-                    className={`object-cover w-full max-h-[600px]`}
+                    className={`aspect-square object-cover w-full max-h-[90vh] md:aspect-video`}
                 />
                 {/* Video detail */}
                 {showVideo && (
@@ -38,12 +39,15 @@ const Hero = () => {
                     onClick={showVideo ? handleShowVideo : null}
                 ></span>
                 {/* View video button */}
-                <span
+                {/* <span
                     className="material-symbols-outlined absolute bottom-2 right-2 z-[1] text-white p-2 cursor-pointer"
                     onClick={handleShowVideo}
                 >
                     play_arrow
-                </span>
+                </span> */}
+                <div className="absolute bottom-0 right-0 text-white">
+                    <Button icon="play_arrow" onClick={handleShowVideo} />
+                </div>
                 {/* Hero content */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 my-container w-full text-left text-white">
                     <h1 className="font-bold text-xl uppercase font-poppins md:text-4xl">Dyoss Watch</h1>

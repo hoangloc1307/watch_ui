@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Button from '../Button';
 
 const Search = () => {
     const [show, setShow] = useState(false);
@@ -6,14 +7,12 @@ const Search = () => {
     return (
         <div>
             {/* Icon */}
-            <span
-                className="material-symbols-outlined pl-2 pt-2 pb-2 cursor-pointer active:text-primary lg:text-white lg:text-3xl lg:p-2 lg:pl-0"
+            <Button
+                icon="search"
                 onClick={() => {
                     setShow(!show);
                 }}
-            >
-                search
-            </span>
+            />
             {/* Search box */}
             {show && (
                 <div className="absolute top-full right-0 w-full max-w-lg z-10 lg:left-8">

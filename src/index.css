@@ -11,10 +11,11 @@
         /* Scrollbar */
         --scrollbar-thumb-color: #f7abc5;
         --scrollbar-thumb-radius: 10px;
-        --scrollbar-width: 5px;
+        --scrollbar-width: 10px;
 
         /* Color */
         --color-primary: 253 121 168;
+        --color-primary-active: 255 80 142;
         --color-dark: 99 110 114;
     }
 
@@ -43,15 +44,18 @@
         background: var(--scrollbar-thumb-color);
         border-radius: var(--scrollbar-thumb-radius);
     }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #ff508e;
+    }
 }
 
 @layer components {
     .my-container {
-        @apply mx-auto px-4 max-w-7xl sm:px-6 md:px-8 xl:p-0;
+        @apply mx-auto px-4 max-w-7xl sm:px-6 md:px-8;
     }
 
     .my-container-full {
-        @apply w-[calc(100vw-5px)] relative overflow-x-scroll left-1/2 -translate-x-1/2 lg:w-full;
+        @apply w-[calc(100vw-var(--scrollbar-width))] relative overflow-x-scroll left-1/2 -translate-x-1/2 lg:w-full;
     }
 
     .bullet {

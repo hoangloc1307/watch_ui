@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { togglePopUp } from '~/app/slices/popUp.slice';
 import { menu } from '~/assets/datas';
 import { logo } from '~/assets/images';
+import Button from '~/components/Button';
 import MenuItem from './MenuItem';
 
 const Menu = () => {
@@ -15,13 +16,13 @@ const Menu = () => {
     return (
         <div id="menu">
             {/* Icons */}
-            <span
-                className={`p-1 flex flex-col items-center cursor-pointer ${show && 'text-primary'}`}
+            <Button
+                icon="menu"
+                label="Menu"
+                fill={show}
+                vertical
                 onClick={() => dispatch(togglePopUp({ popUp: 'menu', show }))}
-            >
-                <span className={`${show && 'fill'} material-symbols-outlined`}>menu</span>
-                <span className="text-sm">Menu</span>
-            </span>
+            />
 
             {/* Overlay */}
             <span
@@ -45,7 +46,7 @@ const Menu = () => {
                 </Link>
 
                 {/* Menu items */}
-                <div>
+                <div className="flex flex-col gap-4">
                     {menu.map(item => (
                         <MenuItem key={item.id} item={item} />
                     ))}

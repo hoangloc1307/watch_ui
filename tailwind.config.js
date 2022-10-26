@@ -5,6 +5,7 @@ module.exports = {
         extend: {
             colors: {
                 primary: 'rgb(var(--color-primary) / <alpha-value>)',
+                'primary-active': 'rgb(var(--color-primary-active) / <alpha-value>)',
                 dark: 'rgb(var(--color-dark) / <alpha-value>)',
             },
             fontFamily: {

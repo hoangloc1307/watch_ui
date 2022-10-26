@@ -8,6 +8,7 @@ import { hideAllPopUp, toggleNavigation, togglePopUp } from '~/app/slices/popUp.
 import { flagEN, flagVI, logoWhite } from '~/assets/images';
 import Search from '~/components/Search';
 import { menu } from '~/assets/datas';
+import Button from '~/components/Button';
 
 const Header = () => {
     const { pathname } = useLocation();
@@ -55,14 +56,9 @@ const Header = () => {
                 } lg:hidden`}
             >
                 <div className="my-container flex justify-between items-center relative">
-                    <span
-                        className="material-symbols-outlined pr-2 pt-2 pb-2 active:text-primary"
-                        onClick={() => dispatch(togglePopUp({ popUp: 'menu', showMenu }))}
-                    >
-                        menu
-                    </span>
+                    <Button icon="menu" onClick={() => dispatch(togglePopUp({ popUp: 'menu', showMenu }))} />
                     <Link to="/">
-                        <img src={logoWhite} alt="logo" className="w-[100px]" />
+                        <img src={logoWhite} alt="logo" className="w-[80px]" />
                     </Link>
                     <Search />
                 </div>
@@ -76,16 +72,10 @@ const Header = () => {
                 } bg-white lg:hidden`}
             >
                 <div className="flex items-center justify-evenly w-full max-w-screen-sm h-my-navigation-height mx-auto ">
-                    <Link to="/" className={`p-1 flex flex-col items-center ${pathname === '/' && 'text-primary'}`}>
-                        <span className={`${pathname === '/' && 'fill'} material-symbols-outlined`}>home</span>
-                        <span className="text-sm">Home</span>
-                    </Link>
+                    <Button icon="home" label="Home" to="/" vertical fill={pathname === '/'} />
                     <Menu />
                     <Cart />
-                    <Link to={false ? '/' : '/login'} className={`p-1 flex flex-col items-center`}>
-                        <span className="material-symbols-outlined">person</span>
-                        <span className="text-sm">Me</span>
-                    </Link>
+                    <Button icon="person" label="Me" to={false ? '/' : '/login'} vertical />
                 </div>
             </nav>
             {/* End Bottom navigation */}
@@ -94,34 +84,48 @@ const Header = () => {
             {/* Menu PC */}
             <nav className="hidden bg-black bg-opacity-70 relative z-10 lg:block">
                 {/* Top bar */}
-                <div className="my-container flex flex-row-reverse items-center justify-between text-white gap-8 py-2">
-                    <div className="flex gap-3">
-                        <Link to={'/'} className="opacity-50 hover:opacity-100 uppercase">
-                            Login
-                        </Link>
-                        <Link to={'/'} className="opacity-50 hover:opacity-100 uppercase">
-                            Register
-                        </Link>
+                <div className="my-container flex items-center justify-between text-white">
+                    <div className="flex">
+                        <Button
+                            label={
+                                <img
+                                    src={flagEN}
+                                    alt="EN"
+                                    className="w-6 h-6 object-cover border-2 border-transparent rounded-full hover:border-primary"
+                                />
+                            }
+                            className="px-2"
+                        />
+                        <Button
+                            label={
+                                <img
+                                    src={flagVI}
+                                    alt="VI"
+                                    className="w-6 h-6 object-cover border-2 border-transparent rounded-full hover:border-primary"
+                                />
+                            }
+                            className="px-2"
+                        />
                     </div>
-                    <div className="flex gap-2">
-                        <img src={flagVI} alt="VI" className="w-8 h-8 object-cover cursor-pointer p-1 hover:bg-white" />
-                        <img src={flagEN} alt="EN" className="w-8 h-8 object-cover cursor-pointer p-1 hover:bg-white" />
+                    <div className="flex">
+                        <Button to="/" label="Login" className="h-max hover:text-primary" />
+                        <Button to="/" label="Register" className="h-max hover:text-primary" />
                     </div>
                 </div>
                 {/* End Top bar */}
 
                 {/* Middle bar */}
-                <div className="my-container relative flex justify-between items-center">
+                <div className="my-container relative flex justify-between items-center text-white my-2">
                     <Search />
                     <Link to="/">
-                        <img src={logoWhite} alt="Dyoss Logo" className="max-w-[150px]" />
+                        <img src={logoWhite} alt="Dyoss Logo" className="max-w-[100px]" />
                     </Link>
                     <Cart />
                 </div>
                 {/* End Middle bar */}
 
                 {/*  */}
-                <div className="flex justify-center gap-2 text-white border-t border-white border-opacity-20">
+                <div className="flex justify-center gap-2 text-white border-y border-white border-opacity-20">
                     {menu.map(item => {
                         if (item.desktop) {
                             return (

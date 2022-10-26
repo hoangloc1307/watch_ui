@@ -1,7 +1,8 @@
 import { memo, useEffect, useState } from 'react';
 import AnimateHeight from 'react-animate-height';
 import { useSelector } from 'react-redux';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import Button from '~/components/Button';
 
 const MenuItem = ({ item }) => {
     const { pathname } = useLocation();
@@ -16,54 +17,45 @@ const MenuItem = ({ item }) => {
         // eslint-disable-next-line
     }, [pathname]);
 
-    const props = {};
-    let Tag = 'div';
-
-    if (item.href) {
-        props.to = item.href;
-        Tag = Link;
-    }
-
     const handleClickMenuItem = callback => {
-        if (Tag === 'div' && item.children) {
+        if (item.children) {
             setShowChildren(!showChildren);
-        } else if (Tag === 'div') {
+        } else {
             callback();
         }
     };
 
     return (
-        <div>
-            <Tag
-                {...props}
-                className={`flex items-center gap-2 w-full p-2 my-2 relative rounded-l-full cursor-pointer ${
-                    pathname === item.href && 'text-primary'
-                } ${showChildren && 'text-primary'} hover:text-primary`}
+        <div className="relative">
+            <Button
+                icon={item.icon}
+                label={item.title}
+                to={item.to}
+                href={item.href}
+                fill={pathname === item.to || showChildren}
+                className={`flex justify-start w-full pl-0 gap-2 text-base font-nunito${
+                    showChildren ? ' text-primary' : ''
+                } peer hover:text-primary`}
                 onClick={() =>
                     handleClickMenuItem(() => {
                         console.log('callback');
                     })
                 }
-            >
-                <span className="material-symbols-outlined">{item.icon}</span>
-                <span className={`text-sm`}>{item.title}</span>
-                {Tag === 'div' && item.children && (
-                    <span
-                        className={`material-symbols-outlined transition-transform duration-500 ease-in-out ${
-                            showChildren && '-rotate-180'
-                        } absolute top-2 right-2`}
-                    >
-                        expand_more
-                    </span>
-                )}
-            </Tag>
-
-            {/* Children */}
-            {Tag === 'div' && item.children && (
+            />
+            {item.children && (
+                <span
+                    className={`material-symbols-outlined transition-transform duration-500 ease-in-out text-[20px]${
+                        showChildren ? ' -rotate-180 text-primary' : ''
+                    } absolute top-1.5 right-4 pointer-events-none peer-hover:text-primary`}
+                >
+                    expand_more
+                </span>
+            )}
+            {item.children && (
                 <AnimateHeight
-                    className={`ml-4 border-l border-l-primary overflow-hidden`}
+                    className={`ml-1.5 pl-1.5 border-l border-l-primary`}
                     duration={500}
-                    height={showChildren ? item.children.length * 40 + (item.children.length + 1) * 8 : 0}
+                    height={showChildren ? item.children.length * 32 : 0}
                 >
                     {item.children.map(i => (
                         <MenuItem key={i.id} item={i} />
