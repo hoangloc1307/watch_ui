@@ -29,7 +29,6 @@ const MenuItem = ({ item }) => {
         <div className="relative">
             <Button
                 icon={item.icon}
-                label={item.title}
                 to={item.to}
                 href={item.href}
                 fill={pathname === item.to || showChildren}
@@ -41,7 +40,9 @@ const MenuItem = ({ item }) => {
                         console.log('callback');
                     })
                 }
-            />
+            >
+                {item.title}
+            </Button>
             {item.children && (
                 <span
                     className={`material-symbols-outlined transition-transform duration-500 ease-in-out text-[20px]${

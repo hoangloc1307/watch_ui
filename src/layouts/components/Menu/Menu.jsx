@@ -16,13 +16,9 @@ const Menu = () => {
     return (
         <div id="menu">
             {/* Icons */}
-            <Button
-                icon="menu"
-                label="Menu"
-                fill={show}
-                vertical
-                onClick={() => dispatch(togglePopUp({ popUp: 'menu', show }))}
-            />
+            <Button icon="menu" fill={show} vertical onClick={() => dispatch(togglePopUp({ popUp: 'menu', show }))}>
+                Menu
+            </Button>
 
             {/* Overlay */}
             <span
@@ -36,7 +32,7 @@ const Menu = () => {
             <div
                 className={`fixed left-0 top-0 ${
                     navigationShow ? 'bottom-my-navigation-height' : 'bottom-0'
-                } w-[250px] overflow-scroll bg-white p-4 duration-700 ease-in-out ${
+                } w-[250px] overflow-y-auto bg-white p-4 duration-700 ease-in-out ${
                     show ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
                 }`}
             >

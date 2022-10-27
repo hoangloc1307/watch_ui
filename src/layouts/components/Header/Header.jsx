@@ -72,10 +72,14 @@ const Header = () => {
                 } bg-white lg:hidden`}
             >
                 <div className="flex items-center justify-evenly w-full max-w-screen-sm h-my-navigation-height mx-auto ">
-                    <Button icon="home" label="Home" to="/" vertical fill={pathname === '/'} />
+                    <Button icon="home" to="/" vertical fill={pathname === '/'}>
+                        Home
+                    </Button>
                     <Menu />
                     <Cart />
-                    <Button icon="person" label="Me" to={false ? '/' : '/login'} vertical />
+                    <Button icon="person" to={false ? '/' : '/login'} vertical>
+                        Me
+                    </Button>
                 </div>
             </nav>
             {/* End Bottom navigation */}
@@ -86,30 +90,28 @@ const Header = () => {
                 {/* Top bar */}
                 <div className="my-container flex items-center justify-between text-white">
                     <div className="flex">
-                        <Button
-                            label={
-                                <img
-                                    src={flagEN}
-                                    alt="EN"
-                                    className="w-6 h-6 object-cover border-2 border-transparent rounded-full hover:border-primary"
-                                />
-                            }
-                            className="px-2"
-                        />
-                        <Button
-                            label={
-                                <img
-                                    src={flagVI}
-                                    alt="VI"
-                                    className="w-6 h-6 object-cover border-2 border-transparent rounded-full hover:border-primary"
-                                />
-                            }
-                            className="px-2"
-                        />
+                        <Button className="px-2">
+                            <img
+                                src={flagEN}
+                                alt="EN"
+                                className="w-6 h-6 object-cover border-2 border-transparent rounded-full hover:border-primary"
+                            />
+                        </Button>
+                        <Button className="px-2">
+                            <img
+                                src={flagVI}
+                                alt="VI"
+                                className="w-6 h-6 object-cover border-2 border-transparent rounded-full hover:border-primary"
+                            />
+                        </Button>
                     </div>
                     <div className="flex">
-                        <Button to="/" label="Login" className="h-max hover:text-primary" />
-                        <Button to="/" label="Register" className="h-max hover:text-primary" />
+                        <Button to="/" className="h-max hover:text-primary">
+                            Login
+                        </Button>
+                        <Button to="/" className="h-max hover:text-primary">
+                            Register
+                        </Button>
                     </div>
                 </div>
                 {/* End Top bar */}
@@ -131,15 +133,15 @@ const Header = () => {
                             return (
                                 <Link
                                     key={item.id}
-                                    to={item.href}
+                                    to={item.to}
                                     className={`capitalize px-2 py-3 font-light relative overflow-hidden group ${
-                                        pathname === item.href && 'text-primary'
+                                        pathname === item.to && 'text-primary'
                                     } hover:text-primary`}
                                 >
                                     {item.title}
                                     <span
                                         className={`absolute w-full h-0.5 bg-primary bottom-2 duration-500 ease-in-out ${
-                                            pathname === item.href ? 'left-0' : '-left-full'
+                                            pathname === item.to ? 'left-0' : '-left-full'
                                         } group-hover:left-0`}
                                     ></span>
                                 </Link>

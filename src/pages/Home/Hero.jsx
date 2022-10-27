@@ -21,7 +21,7 @@ const Hero = () => {
                     autoPlay
                     loop
                     muted
-                    className={`aspect-square object-cover w-full max-h-[90vh] md:aspect-video`}
+                    className={`aspect-square object-cover w-full max-h-[clamp(500px,90vh,850px)] md:aspect-video`}
                 />
                 {/* Video detail */}
                 {showVideo && (

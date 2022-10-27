@@ -1,6 +1,4 @@
-// import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-// import { logoBlack } from './assets/images';
 
 import MasterLayout from './layouts/MasterLayout';
 import { publicRoute, restrictRoute } from './routes';
@@ -8,11 +6,6 @@ import { publicRoute, restrictRoute } from './routes';
 const App = () => {
     return (
         <>
-            {/* {loaded === false && (
-                <div className="fixed inset-0 z-50 bg-white flex items-center justify-center">
-                    <img src={logoBlack} alt="Logo" className="max-w-[150px]" />
-                </div>
-            )} */}
             <BrowserRouter>
                 <Routes>
                     {/* Restrict routes */}

@@ -16,12 +16,13 @@ const Cart = () => {
             {/* Icon mobile */}
             <Button
                 icon="shopping_cart"
-                label="Cart"
                 className="lg:hidden"
                 vertical
                 fill={show}
                 onClick={() => dispatch(togglePopUp({ popUp: 'cart', show }))}
-            />
+            >
+                Cart
+            </Button>
 
             {/* Icon desktop */}
             <Button
@@ -75,12 +76,9 @@ const Cart = () => {
                     <p className="font-semibold tracking-widest text-primary italic">
                         180,000,000<sup>đ</sup>
                     </p>
-                    <Button
-                        label="Checkout"
-                        icon="shopping_cart_checkout"
-                        background
-                        onClick={() => console.log('checkout')}
-                    />
+                    <Button icon="shopping_cart_checkout" background onClick={() => console.log('checkout')}>
+                        Checkout
+                    </Button>
                 </div>
             </div>
         </div>

@@ -23,7 +23,9 @@ const Home = () => {
 
             {/* About Dyoss */}
             <div className="my-container py-20 relative text-white text-center">
-                <h2 className="font-dancing-script text-3xl text-primary md:text-4xl">About Dyoss Watch</h2>
+                <h2 className="font-dancing-script text-3xl text-primary text-center capitalize tracking-wider font-semibold md:text-4xl">
+                    About Dyoss Watch
+                </h2>
                 <p className="mt-6 text-sm mx-auto max-w-[500px] md:text-base">
                     Dyoss' latest masterpiece with its luxurious, minimalistic, modern design has made many fashionistas
                     super happy. It's more surprising that it can be combined with any fashion style you love.
@@ -42,7 +44,9 @@ const Home = () => {
                         <span className="capitalize text-xs md:text-sm">Miyota machine from Japan</span>
                     </div>
                 </div>
-                <Button label="More Information" icon="info" background className="mt-10" />
+                <Button icon="info" background className="mt-10">
+                    More Information
+                </Button>
                 <span className="absolute inset-0 bg-black bg-opacity-70 z-[-1]"></span>
                 <img src={banner1} alt="Banner 1" className="absolute top-0 left-0 z-[-2] object-cover w-full h-full" />
             </div>

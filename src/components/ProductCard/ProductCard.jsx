@@ -27,7 +27,9 @@ const ProductCard = ({ product }) => (
                 3,000,000<sup>đ</sup>
             </p>
             {/* Button */}
-            <Button label="Add to cart" icon="add_shopping_cart" background />
+            <Button icon="add_shopping_cart" background>
+                Add to cart
+            </Button>
         </div>
     </Link>
 );

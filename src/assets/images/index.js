@@ -9,8 +9,9 @@ export const product2_0 = require('./products/2.0.png');
 export const product3_0 = require('./products/3.0.png');
 export const product4_0 = require('./products/4.0.png');
 export const product5_0 = require('./products/5.0.png');
-// Banner
+// Background
 export const banner1 = require('./banner1.jpg');
+export const banner2 = require('./banner2.jpg');
 // Language
 export const flagVI = require('./flagVN.png');
 export const flagEN = require('./flagEN.png');
