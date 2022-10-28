@@ -1,3 +1,4 @@
-const SearchResult = () => {};
-
-export default SearchResult;
+export default function SearchResult() {
+    console.log('SearchResult.jsx');
+    return <h1>Search</h1>;
+}

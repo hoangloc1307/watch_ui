@@ -5,61 +5,43 @@ import { product1_0, product2_0, product3_0, product4_0, product5_0 } from '~/as
 import Button from '../Button';
 import CartItem from './CartItem';
 
-const Cart = () => {
+export default function Cart() {
     const dispatch = useDispatch();
 
     const show = useSelector(state => state.popup.items.cart);
-    const navigationShow = useSelector(state => state.popup.navigation);
 
+    console.log('Cart.jsx');
     return (
-        <div id="cart">
-            {/* Icon mobile */}
-            <Button
-                icon="shopping_cart"
-                className="lg:hidden"
-                vertical
-                fill={show}
-                onClick={() => dispatch(togglePopUp({ popUp: 'cart', show }))}
-            >
-                Cart
-            </Button>
-
-            {/* Icon desktop */}
-            <Button
-                icon="shopping_bag"
-                className="hidden lg:block"
-                onClick={() => dispatch(togglePopUp({ popUp: 'cart', show }))}
-            />
-
+        <div
+            id="cart-popup"
+            className={`fixed z-[1] inset-0 bottom-my-navigation-height duration-700 ${
+                show ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+            } lg:bottom-0`}
+        >
             {/* Overlay */}
-            <span
-                className={`fixed top-0 left-0 right-0 z-10 ${
-                    navigationShow ? 'bottom-my-navigation-height' : 'bottom-0'
-                } bg-black bg-opacity-40 ${show ? 'overlay-show ' : 'overlay-hide'} lg:inset-0`}
+            <div
+                className={`w-full h-full bg-black bg-opacity-70`}
                 onClick={() => dispatch(togglePopUp({ popUp: 'cart', show }))}
             />
 
             {/* Cart container */}
             <div
-                className={`fixed right-0 top-0 z-10 ${
-                    navigationShow ? 'bottom-my-navigation-height' : 'bottom-0'
-                } w-[300px] overflow-auto bg-slate-100 duration-700 ease-in-out ${
+                className={`absolute top-0 right-0 w-[300px] h-full bg-slate-100 duration-700 ease-in-out ${
                     show ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
-                } text-dark lg:bottom-0 lg:w-[500px]`}
+                } text-dark lg:w-[500px]`}
             >
-                <h2 className="text-sm font-normal font-poppins capitalize text-center p-4 h-14 border-b-2 border-primary border-opacity-30 rounded-b-xl bg-white relative lg:text-base">
+                <div className="border-b-2 border-primary border-opacity-30 rounded-b-xl h-14 px-4 py-2 bg-white relative">
                     <Button
                         icon="chevron_left"
                         className="absolute left-0 top-1/2 -translate-y-1/2"
                         onClick={() => dispatch(togglePopUp({ popUp: 'cart', show }))}
                     />
-                    My Cart
-                </h2>
+                    <h2 className="text-base capitalize text-center">My Cart</h2>
+                    <p className="text-xs text-center font-medium text-primary">Items: 25</p>
+                </div>
                 {/* Cart items */}
                 <div
-                    className={`p-2 flex flex-col gap-2 ${
-                        navigationShow ? 'h-my-cart-item-height-show' : 'h-my-cart-item-height-hide'
-                    } overflow-y-auto duration-1000 lg:h-my-cart-item-height-hide`}
+                    className={`p-2 flex flex-col gap-2 h-my-cart-item-height-show overflow-y-auto lg:h-my-cart-item-height-hide`}
                 >
                     {[
                         { image: product1_0, name: 'Cart Item 1 With Long Name', price: 3100000, amount: 1 },
@@ -72,17 +54,18 @@ const Cart = () => {
                     ))}
                 </div>
                 {/* Total */}
-                <div className="flex justify-between items-center p-4 h-20 border-t-2 border-primary border-opacity-30 rounded-t-xl bg-white">
-                    <p className="font-semibold tracking-widest text-primary italic">
-                        180,000,000<sup>đ</sup>
+                <div className="flex justify-between items-end p-4 h-20 border-t-2 border-primary border-opacity-30 rounded-t-xl bg-white">
+                    <p className="flex flex-col">
+                        <span>Total:</span>
+                        <span className="font-semibold text-primary">
+                            180,000,000<sup>đ</sup>
+                        </span>
                     </p>
-                    <Button icon="shopping_cart_checkout" background onClick={() => console.log('checkout')}>
+                    <Button icon="shopping_cart_checkout" background onClick={() => console.log('Go to checkout')}>
                         Checkout
                     </Button>
                 </div>
             </div>
         </div>
     );
-};
-
-export default Cart;
+}

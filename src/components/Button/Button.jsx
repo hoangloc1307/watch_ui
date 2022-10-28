@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 import { twMerge } from 'tailwind-merge';
 
-const Button = ({
+export default memo(function Button({
     children,
     icon,
     background,
@@ -14,7 +14,7 @@ const Button = ({
     className,
     onClick,
     ...passProps
-}) => {
+}) {
     let Tag = 'button';
     const props = { onClick, ...passProps };
     let styleButton = '';
@@ -54,7 +54,7 @@ const Button = ({
         styleIcon += ' fill';
     }
 
-    styleButton += ` font-poppins font-normal rounded-lg`;
+    styleButton += ` font-normal rounded-lg`;
     styleIcon += ' material-symbols-outlined';
 
     return (
@@ -69,5 +69,4 @@ const Button = ({
             )}
         </Tag>
     );
-};
-export default memo(Button);
+});

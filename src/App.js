@@ -13,8 +13,8 @@ const App = () => {
                         const Page = route.component;
                         return <Route key={index} path={route.path} element={<Page />} />;
                     })}
-                    {/* Public routes */}
                     <Route path="/" element={<MasterLayout />}>
+                        {/* Public routes */}
                         {publicRoute.map((route, index) => {
                             const Page = route.component;
                             return <Route key={index} path={route.path} element={<Page />} />;

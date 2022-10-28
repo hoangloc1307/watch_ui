@@ -1,10 +1,8 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import Menu from '../Menu';
-import Cart from '~/components/Cart';
-import { hideAllPopUp, toggleNavigation, togglePopUp } from '~/app/slices/popUp.slice';
+import { hideAllPopUp, togglePopUp } from '~/app/slices/popUp.slice';
 import { flagEN, flagVI, logoWhite } from '~/assets/images';
 import Search from '~/components/Search';
 import { menu } from '~/assets/datas';
@@ -13,11 +11,13 @@ import Button from '~/components/Button';
 const Header = () => {
     const { pathname } = useLocation();
     const dispatch = useDispatch();
-    const refTopBar = useRef(null);
 
-    const showNavigation = useSelector(state => state.popup.navigation);
     const showMenu = useSelector(state => state.popup.items.menu);
+    const showCart = useSelector(state => state.popup.items.cart);
 
+    console.log('Header.jsx');
+
+    // Scroll top and reset body overflow
     useEffect(() => {
         dispatch(hideAllPopUp());
         window.scrollTo({ top: 0, left: 0 });
@@ -25,34 +25,13 @@ const Header = () => {
         // eslint-disable-next-line
     }, [pathname]);
 
-    useEffect(() => {
-        const topBarHeight = refTopBar.current.clientHeight;
-
-        const handleScroll = () => {
-            if (window.scrollY >= topBarHeight && !showNavigation) {
-                dispatch(toggleNavigation(true));
-            }
-            if (window.scrollY < topBarHeight && showNavigation) {
-                dispatch(toggleNavigation(false));
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-        // eslint-disable-next-line
-    }, [showNavigation]);
-
     return (
-        <header className="">
+        <header>
             {/* Menu mobile */}
             {/* Topbar */}
             <nav
-                ref={refTopBar}
                 className={`bg-black text-white ${
-                    pathname === '/' ? 'absolute top-0 left-0 right-0 z-10 bg-opacity-50' : 'relative'
+                    pathname === '/' ? 'absolute top-0 left-0 right-0 z-[1] bg-opacity-50' : 'relative'
                 } lg:hidden`}
             >
                 <div className="my-container flex justify-between items-center relative">
@@ -67,16 +46,32 @@ const Header = () => {
 
             {/* Bottom navigation */}
             <nav
-                className={`fixed left-0 w-full bottom-0 z-20 shadow-[0_0_2px_0_#ccc] overflow-hidden ${
-                    showNavigation ? 'duration-500 h-my-navigation-height' : 'h-0'
-                } bg-white lg:hidden`}
+                className={`fixed left-0 bottom-0 w-full h-my-navigation-height z-[1] bg-white shadow-[0_0_2px_0_#ccc] duration-500 lg:hidden`}
             >
                 <div className="flex items-center justify-evenly w-full max-w-screen-sm h-my-navigation-height mx-auto ">
                     <Button icon="home" to="/" vertical fill={pathname === '/'}>
                         Home
                     </Button>
-                    <Menu />
-                    <Cart />
+                    <Button
+                        icon="menu"
+                        vertical
+                        fill={showMenu}
+                        onClick={() => dispatch(togglePopUp({ popUp: 'menu', show: showMenu }))}
+                    >
+                        Menu
+                    </Button>
+                    <Button
+                        icon="shopping_cart"
+                        vertical
+                        fill={showCart}
+                        className="relative"
+                        onClick={() => dispatch(togglePopUp({ popUp: 'cart', show: showCart }))}
+                    >
+                        Cart
+                        <span className="absolute -top-1 left-full flex justify-center items-center text-[9px] px-[1px] text-white bg-red-400 rounded-md empty:hidden">
+                            25
+                        </span>
+                    </Button>
                     <Button icon="person" to={false ? '/' : '/login'} vertical>
                         Me
                     </Button>
@@ -86,7 +81,11 @@ const Header = () => {
             {/* End Menu mobile */}
 
             {/* Menu PC */}
-            <nav className="hidden bg-black bg-opacity-70 relative z-10 lg:block">
+            <nav
+                className={`hidden bg-black ${
+                    pathname === '/' ? 'absolute top-0 left-0 right-0 z-[1] bg-opacity-50' : 'relative'
+                } lg:block`}
+            >
                 {/* Top bar */}
                 <div className="my-container flex items-center justify-between text-white">
                     <div className="flex">
@@ -122,7 +121,7 @@ const Header = () => {
                     <Link to="/">
                         <img src={logoWhite} alt="Dyoss Logo" className="max-w-[100px]" />
                     </Link>
-                    <Cart />
+                    <Button icon="shopping_bag" onClick={() => dispatch(togglePopUp({ popUp: 'cart', showCart }))} />
                 </div>
                 {/* End Middle bar */}
 

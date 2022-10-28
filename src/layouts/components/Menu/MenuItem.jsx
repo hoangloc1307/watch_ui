@@ -1,14 +1,15 @@
-import { memo, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import AnimateHeight from 'react-animate-height';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import Button from '~/components/Button';
 
-const MenuItem = ({ item }) => {
+export default (function MenuItem({ item }) {
     const { pathname } = useLocation();
     const [showChildren, setShowChildren] = useState(false);
 
     const show = useSelector(state => state.popup.items.menu);
+    console.log('MenuItem.jsx');
 
     useEffect(() => {
         if (show) {
@@ -32,7 +33,7 @@ const MenuItem = ({ item }) => {
                 to={item.to}
                 href={item.href}
                 fill={pathname === item.to || showChildren}
-                className={`flex justify-start w-full pl-0 gap-2 text-base font-nunito${
+                className={`flex justify-start w-full p-0 gap-2${
                     showChildren ? ' text-primary' : ''
                 } peer hover:text-primary`}
                 onClick={() =>
@@ -54,7 +55,7 @@ const MenuItem = ({ item }) => {
             )}
             {item.children && (
                 <AnimateHeight
-                    className={`ml-1.5 pl-1.5 border-l border-l-primary`}
+                    className={`border-l border-l-primary pl-2 ml-1.5`}
                     duration={500}
                     height={showChildren ? item.children.length * 32 : 0}
                 >
@@ -65,6 +66,4 @@ const MenuItem = ({ item }) => {
             )}
         </div>
     );
-};
-
-export default memo(MenuItem);
+});

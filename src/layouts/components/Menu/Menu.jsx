@@ -1,38 +1,34 @@
+import { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { togglePopUp } from '~/app/slices/popUp.slice';
 import { menu } from '~/assets/datas';
 import { logo } from '~/assets/images';
-import Button from '~/components/Button';
 import MenuItem from './MenuItem';
 
-const Menu = () => {
+export default memo(function Menu() {
     const dispatch = useDispatch();
 
     const show = useSelector(state => state.popup.items.menu);
-    const navigationShow = useSelector(state => state.popup.navigation);
+    console.log('Menu.jsx');
 
     return (
-        <div id="menu">
-            {/* Icons */}
-            <Button icon="menu" fill={show} vertical onClick={() => dispatch(togglePopUp({ popUp: 'menu', show }))}>
-                Menu
-            </Button>
-
+        <div
+            id="menu-popup"
+            className={`fixed z-[1] inset-0 bottom-my-navigation-height duration-700 ${
+                show ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+            }`}
+        >
             {/* Overlay */}
-            <span
-                className={`fixed top-0 left-0 right-0 ${
-                    navigationShow ? 'bottom-my-navigation-height' : 'bottom-0'
-                } bg-black bg-opacity-40 ${show ? 'overlay-show ' : 'overlay-hide'}`}
+            <div
+                className={`w-full h-full bg-black bg-opacity-70`}
                 onClick={() => dispatch(togglePopUp({ popUp: 'menu', show }))}
             />
 
             {/* Menu */}
             <div
-                className={`fixed left-0 top-0 ${
-                    navigationShow ? 'bottom-my-navigation-height' : 'bottom-0'
-                } w-[250px] overflow-y-auto bg-white p-4 duration-700 ease-in-out ${
+                className={`absolute left-0 top-0 w-[250px] h-full overflow-y-auto bg-white p-4 duration-700 ease-in-out ${
                     show ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
                 }`}
             >
@@ -42,7 +38,7 @@ const Menu = () => {
                 </Link>
 
                 {/* Menu items */}
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-2">
                     {menu.map(item => (
                         <MenuItem key={item.id} item={item} />
                     ))}
@@ -50,6 +46,4 @@ const Menu = () => {
             </div>
         </div>
     );
-};
-
-export default Menu;
+});

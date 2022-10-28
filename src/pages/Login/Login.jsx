@@ -19,12 +19,14 @@ export default function Login() {
         handleSubmit,
         formState: { errors },
         setFocus,
+        reset,
     } = useForm({
         resolver: yupResolver(schema),
     });
 
     const onSubmit = data => {
         alert(`username: ${data.username}\npassword: ${data.password}`);
+        reset();
     };
 
     const onError = data => {
@@ -43,11 +45,11 @@ export default function Login() {
                 className="absolute left-0 top-0 object-center object-cover w-full h-full z-[-1]"
             />
             {/* Form */}
-            <div className="w-full bg-white bg-opacity-30 shadow-lg backdrop-blur-sm rounded-lg border border-white border-opacity-20 p-4">
+            <div className="w-[300px] bg-white bg-opacity-30 shadow-lg backdrop-blur-sm rounded-lg border border-white border-opacity-20 p-4">
                 {/* Logo */}
                 <div className="flex items-center justify-between">
                     <img src={logoWhite} alt="dyoss" className="w-[75px]" />
-                    <h2 className="text-white font-semibold font-poppins text-lg capitalize">Login</h2>
+                    <h2 className="text-white font-semibold text-lg capitalize">Login</h2>
                 </div>
                 {/* Form login */}
                 <form autoComplete="off" onSubmit={handleSubmit(onSubmit, onError)} className="my-5">
@@ -74,8 +76,9 @@ export default function Login() {
                 </form>
                 {/* Login with */}
                 <p className="text-white text-center mb-2 text-sm relative">
-                    <span className="absolute wi"></span>
-                    Or Login With
+                    <span className="absolute top-1/2 left-0 w-[75px] h-[1px] bg-white"></span>
+                    <span className="absolute top-1/2 right-0 w-[75px] h-[1px] bg-white"></span>
+                    Or login with
                 </p>
                 <div className="flex items-center justify-between">
                     <Button
@@ -99,22 +102,19 @@ export default function Login() {
                 </div>
                 {/* Options */}
                 <div className="flex flex-col gap-1 mt-5">
-                    <Button
-                        icon="lock_reset"
-                        className="text-white text-xs justify-start pl-0 w-full hover:text-primary"
-                    >
+                    <Button icon="lock_reset" className="text-white justify-start pl-0 w-full hover:text-primary">
                         Forgot password
                     </Button>
                     <Button
                         icon="person_add"
-                        className="text-white text-xs justify-start pl-0 w-full hover:text-primary"
+                        className="text-white justify-start pl-0 w-full hover:text-primary"
                         to="/register"
                     >
                         Create new account
                     </Button>
                     <Button
                         icon="keyboard_backspace"
-                        className="text-white text-xs justify-start pl-0 w-full hover:text-primary"
+                        className="text-white justify-start pl-0 w-full hover:text-primary"
                         to="/"
                     >
                         Back to home page

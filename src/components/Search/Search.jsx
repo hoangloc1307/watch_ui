@@ -1,6 +1,7 @@
+import { memo } from 'react';
 import Button from '../Button';
 
-const Search = () => {
+export default memo(function Search() {
     return (
         <div className="group">
             {/* Icon */}
@@ -10,7 +11,7 @@ const Search = () => {
                 <input
                     type="text"
                     placeholder="Enter keyword to search..."
-                    className="w-full outline-none text-black text-xm py-2 pl-4 pr-28 lg:rounded-lg"
+                    className="w-full outline-none text-black text-sm py-2 pl-4 pr-28 lg:rounded-lg"
                 />
                 <Button
                     icon="search"
@@ -22,6 +23,4 @@ const Search = () => {
             </div>
         </div>
     );
-};
-
-export default Search;
+});

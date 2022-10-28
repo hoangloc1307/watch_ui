@@ -26,11 +26,11 @@ const Home = () => {
                 <h2 className="font-dancing-script text-3xl text-primary text-center capitalize tracking-wider font-semibold md:text-4xl">
                     About Dyoss Watch
                 </h2>
-                <p className="mt-6 text-sm mx-auto max-w-[500px] md:text-base">
+                <p className="text-sm my-6 mx-auto font-light max-w-[500px] md:text-base">
                     Dyoss' latest masterpiece with its luxurious, minimalistic, modern design has made many fashionistas
                     super happy. It's more surprising that it can be combined with any fashion style you love.
                 </p>
-                <div className="grid grid-cols-3 mt-6">
+                <div className="grid grid-cols-3">
                     <div className="flex flex-col items-center gap-2">
                         <span className="material-symbols-outlined text-5xl">watch_off</span>
                         <span className="capitalize text-xs md:text-sm">scratch resistant sapphire glass</span>
