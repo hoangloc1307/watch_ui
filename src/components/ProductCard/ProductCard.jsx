@@ -3,7 +3,7 @@ import Button from '../Button';
 
 const ProductCard = ({ product }) => (
     <Link
-        to="/"
+        to="/product/abc"
         className="block max-w-[200px] p-2 mt-20 bg-white rounded-lg shadow-[4px_4px_12px_#d9d9d9,-4px_-4px_12px_#ffffff]"
     >
         {/* Image */}

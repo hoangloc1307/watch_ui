@@ -10,7 +10,7 @@ export default function Cart() {
 
     const show = useSelector(state => state.popup.items.cart);
 
-    console.log('Cart.jsx');
+    console.log('Cart');
     return (
         <div
             id="cart-popup"

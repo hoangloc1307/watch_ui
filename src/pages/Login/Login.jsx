@@ -1,4 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
@@ -14,6 +15,8 @@ const schema = yup
     .required();
 
 export default function Login() {
+    const [showPassword, setShowPassword] = useState(false);
+
     const {
         register,
         handleSubmit,
@@ -34,6 +37,10 @@ export default function Login() {
             setFocus(key);
             break;
         }
+    };
+
+    const handleShowPassword = () => {
+        setShowPassword(!showPassword);
     };
 
     return (
@@ -65,10 +72,17 @@ export default function Login() {
                         register={register}
                         name="password"
                         error={errors?.password?.message}
-                        type="password"
+                        type={showPassword ? 'text' : 'password'}
                         placeholder="Password"
                         icon="lock"
                     />
+                    <Button
+                        icon={showPassword ? 'visibility_off' : 'visibility'}
+                        className="text-white text-xs flex p-0 ml-auto mr-0 relative -top-4"
+                        onClick={handleShowPassword}
+                    >
+                        {showPassword ? 'Hide password' : 'Show password'}
+                    </Button>
                     {/* Login button */}
                     <Button icon="login" background className="w-full flex-row-reverse" type="submit">
                         Login

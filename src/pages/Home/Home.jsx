@@ -4,6 +4,7 @@ import ProductContainer from '~/components/ProductContainer';
 import Hero from './Hero';
 
 const Home = () => {
+    console.log('Home');
     return (
         <>
             {/* Hero */}

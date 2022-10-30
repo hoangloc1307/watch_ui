@@ -6,7 +6,7 @@ export default function CartItem({ product }) {
         e.preventDefault();
         console.log('Amount Change');
     };
-    console.log('CartItem.jsx');
+    console.log('CartItem');
     // Render
     return (
         <Link to={'/'} className="flex items-center justify-between bg-white rounded-xl p-2">

@@ -1,5 +1,7 @@
-export default function FormInput({ register, name, error, ...rest }) {
-    console.log('FormInput.jsx');
+import { memo } from 'react';
+
+export default memo(function FormInput({ register, name, error, ...rest }) {
+    console.log('FormInput');
     return (
         <div className={`relative ${error ? 'mb-9' : 'mb-5'}`}>
             <input
@@ -23,4 +25,4 @@ export default function FormInput({ register, name, error, ...rest }) {
             {error && <p className="text-red-400 text-sm absolute top-[calc(100%+3px)] left-2">Error: {error}</p>}
         </div>
     );
-}
+});

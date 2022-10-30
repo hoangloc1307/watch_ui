@@ -27,7 +27,7 @@ export default memo(function Newsletter() {
         }
     };
 
-    console.log('Newsletter.jsx');
+    console.log('Newsletter');
 
     return (
         <div>

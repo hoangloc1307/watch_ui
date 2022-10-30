@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -20,7 +20,7 @@
     }
 
     /* Thin */
-    @font-face {
+    /* @font-face {
         font-family: Poppins;
         font-weight: 100;
         font-style: normal;
@@ -31,111 +31,7 @@
         font-weight: 100;
         font-style: italic;
         src: url('./assets/fonts/poppins/Poppins-ThinItalic.otf');
-    }
-    /* Extralight */
-    @font-face {
-        font-family: Poppins;
-        font-weight: 200;
-        font-style: normal;
-        src: url('./assets/fonts/poppins/Poppins-ExtraLight.otf');
-    }
-    @font-face {
-        font-family: Poppins;
-        font-weight: 200;
-        font-style: italic;
-        src: url('./assets/fonts/poppins/Poppins-ExtraLightItalic.otf');
-    }
-    /* Light */
-    @font-face {
-        font-family: Poppins;
-        font-weight: 300;
-        font-style: normal;
-        src: url('./assets/fonts/poppins/Poppins-Light.otf');
-    }
-    @font-face {
-        font-family: Poppins;
-        font-weight: 300;
-        font-style: italic;
-        src: url('./assets/fonts/poppins/Poppins-LightItalic.otf');
-    }
-    /* Normal */
-    @font-face {
-        font-family: Poppins;
-        font-weight: 400;
-        font-style: normal;
-        src: url('./assets/fonts/poppins/Poppins-Regular.otf');
-    }
-    @font-face {
-        font-family: Poppins;
-        font-weight: 400;
-        font-style: italic;
-        src: url('./assets/fonts/poppins/Poppins-Italic.otf');
-    }
-    /* Medium */
-    @font-face {
-        font-family: Poppins;
-        font-weight: 500;
-        font-style: normal;
-        src: url('./assets/fonts/poppins/Poppins-Medium.otf');
-    }
-    @font-face {
-        font-family: Poppins;
-        font-weight: 500;
-        font-style: italic;
-        src: url('./assets/fonts/poppins/Poppins-MediumItalic.otf');
-    }
-    /* Semibold */
-    @font-face {
-        font-family: Poppins;
-        font-weight: 600;
-        font-style: normal;
-        src: url('./assets/fonts/poppins/Poppins-SemiBold.otf');
-    }
-    @font-face {
-        font-family: Poppins;
-        font-weight: 600;
-        font-style: italic;
-        src: url('./assets/fonts/poppins/Poppins-SemiBoldItalic.otf');
-    }
-    /* Bold */
-    @font-face {
-        font-family: Poppins;
-        font-weight: 700;
-        font-style: normal;
-        src: url('./assets/fonts/poppins/Poppins-Bold.otf');
-    }
-    @font-face {
-        font-family: Poppins;
-        font-weight: 700;
-        font-style: italic;
-        src: url('./assets/fonts/poppins/Poppins-BoldItalic.otf');
-    }
-    /* Extrabold */
-    @font-face {
-        font-family: Poppins;
-        font-weight: 800;
-        font-style: normal;
-        src: url('./assets/fonts/poppins/Poppins-ExtraBold.otf');
-    }
-    @font-face {
-        font-family: Poppins;
-        font-weight: 800;
-        font-style: italic;
-        src: url('./assets/fonts/poppins/Poppins-ExtraBoldItalic.otf');
-    }
-    /* Black */
-    @font-face {
-        font-family: Poppins;
-        font-weight: 900;
-        font-style: normal;
-        src: url('./assets/fonts/poppins/Poppins-Black.otf');
-    }
-    @font-face {
-        font-family: Poppins;
-        font-weight: 900;
-        font-style: italic;
-        src: url('./assets/fonts/poppins/Poppins-BlackItalic.otf');
-    }
+    } */
 
     /* Google font icon */
     .material-symbols-outlined {
@@ -148,7 +44,6 @@
     body {
         -webkit-tap-highlight-color: transparent;
         user-select: none;
-        font-family: Poppins, sans-serif;
         color: rgb(var(--color-dark) / 1);
     }
 
@@ -183,19 +78,14 @@
         @apply w-[calc(100vw-var(--scrollbar-width))] relative overflow-x-auto left-1/2 -translate-x-1/2 lg:w-full;
     }
 
+    /* Swiper - Pagination */
+    .bullets {
+        @apply relative;
+    }
     .bullet {
-        @apply inline-block mx-0.5 p-[3px] rounded-full bg-primary bg-opacity-20;
+        @apply inline-block mx-0.5 p-[3px] rounded-full bg-primary bg-opacity-50 duration-700;
     }
-
     .bullet-active {
-        @apply bg-primary bg-opacity-60 p-[4px];
-    }
-
-    .overlay-show {
-        @apply opacity-100 [transition:opacity_0.3s_0.3s_ease-in-out] pointer-events-auto;
-    }
-
-    .overlay-hide {
-        @apply opacity-0 [transition:opacity_0.3s_ease-in-out] pointer-events-none;
+        @apply py-[3px] px-[10px];
     }
 }
