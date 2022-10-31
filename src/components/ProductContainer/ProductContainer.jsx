@@ -6,14 +6,12 @@ const ProductContainer = ({ title, description, products }) => (
             {title}
         </h2>
         <p className="py-2 text-xs text-center empty:hidden">{description}</p>
-        <div className="my-container-full">
-            <div className="flex w-max items-center lg:w-full lg:grid lg:grid-cols-5">
-                {products.map((product, index) => (
-                    <div key={index} className="w-1/2 p-3 lg:w-full">
-                        <ProductCard product={product} />
-                    </div>
-                ))}
-            </div>
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5">
+            {products.map((product, index) => (
+                <div key={index} className="p-2">
+                    <ProductCard product={product} />
+                </div>
+            ))}
         </div>
     </div>
 );

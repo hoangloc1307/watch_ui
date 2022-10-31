@@ -15,8 +15,6 @@ const Header = () => {
     const showMenu = useSelector(state => state.popup.items.menu);
     const showCart = useSelector(state => state.popup.items.cart);
 
-    console.log('Header');
-
     // Scroll top and reset body overflow
     useEffect(() => {
         dispatch(hideAllPopUp());

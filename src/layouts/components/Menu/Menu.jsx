@@ -11,7 +11,6 @@ export default memo(function Menu() {
     const dispatch = useDispatch();
 
     const show = useSelector(state => state.popup.items.menu);
-    console.log('Menu');
 
     return (
         <div

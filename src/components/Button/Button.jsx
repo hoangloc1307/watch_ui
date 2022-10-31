@@ -49,8 +49,6 @@ export default memo(
         styleButton += ` font-normal rounded-lg`;
         styleIcon += ' material-symbols-outlined';
 
-        console.log('Button');
-
         return (
             <Tag {...props} className={`${twMerge(styleButton, className ?? '')}`}>
                 {children && !icon && <>{children}</>}

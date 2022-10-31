@@ -27,8 +27,6 @@ export default memo(function Newsletter() {
         }
     };
 
-    console.log('Newsletter');
-
     return (
         <div>
             <h2 className="text-base text-center capitalize mb-4 md:text-xl">Newsletter</h2>

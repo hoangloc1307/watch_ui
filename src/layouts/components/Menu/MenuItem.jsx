@@ -9,7 +9,6 @@ export default (function MenuItem({ item }) {
     const [showChildren, setShowChildren] = useState(false);
 
     const show = useSelector(state => state.popup.items.menu);
-    console.log('MenuItem');
 
     useEffect(() => {
         if (show) {

@@ -1,7 +1,6 @@
 import { memo } from 'react';
 
 export default memo(function FormInput({ register, name, error, ...rest }) {
-    console.log('FormInput');
     return (
         <div className={`relative ${error ? 'mb-9' : 'mb-5'}`}>
             <input

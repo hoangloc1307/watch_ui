@@ -11,8 +11,6 @@ const Hero = () => {
         document.body.style.overflow = showVideo ? 'unset' : 'hidden';
     };
 
-    console.log('Hero');
-
     return (
         <div className="relative">
             {/* Video hero */}

@@ -15,8 +15,6 @@ export default function Footer() {
         }
     };
 
-    console.log('Footer');
-
     return (
         <footer className="mb-my-navigation-height pt-10 bg-[#3a3b3c] text-white lg:mb-0">
             <div className="my-container">
