@@ -13,7 +13,7 @@ export default function ProductSlider() {
     return (
         <div className="relative">
             {/* Navigation */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(clamp(200px,80%,400px)+100px)] max-w-full px-1 flex justify-between z-10 pointer-events-none opacity-50">
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(clamp(200px,80%,400px)+100px)] max-w-full px-1 flex justify-between z-[2] pointer-events-none opacity-50">
                 <Button icon="navigate_before" outline ref={btnPrevRef} className="rounded-full pointer-events-auto" />
                 <Button icon="navigate_next" outline ref={btnNextRef} className="rounded-full pointer-events-auto" />
             </div>

@@ -15,7 +15,7 @@ export default memo(function Menu() {
     return (
         <div
             id="menu-popup"
-            className={`fixed z-[1] inset-0 bottom-my-navigation-height duration-700 ${
+            className={`fixed z-[2] inset-0 bottom-my-navigation-height duration-700 ${
                 show ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
             }`}
         >

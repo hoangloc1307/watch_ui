@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 
 import { togglePopUp } from '~/app/slices/popUp.slice';
 import { product1_0, product2_0, product3_0, product4_0, product5_0 } from '~/assets/images';
@@ -7,13 +8,14 @@ import CartItem from './CartItem';
 
 export default function Cart() {
     const dispatch = useDispatch();
+    const { pathname } = useLocation();
 
     const show = useSelector(state => state.popup.items.cart);
 
     return (
         <div
             id="cart-popup"
-            className={`fixed z-[1] inset-0 bottom-my-navigation-height duration-700 ${
+            className={`fixed z-[2] inset-0 bottom-my-navigation-height duration-700 ${
                 show ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
             } lg:bottom-0`}
         >
@@ -60,7 +62,16 @@ export default function Cart() {
                             180,000,000<sup>đ</sup>
                         </span>
                     </p>
-                    <Button icon="shopping_cart_checkout" background onClick={() => console.log('Go to checkout')}>
+                    <Button
+                        to={'/checkout'}
+                        icon="shopping_cart_checkout"
+                        background
+                        onClick={() => {
+                            if (pathname === '/checkout') {
+                                dispatch(togglePopUp({ popUp: 'cart', show }));
+                            }
+                        }}
+                    >
                         Checkout
                     </Button>
                 </div>

@@ -30,7 +30,7 @@ export default function Gallery() {
     };
 
     return (
-        <div className="my-container py-2.5 gap-2.5 grid grid-cols-2 grid-flow-dense auto-rows-max sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+        <div className="p-2.5 gap-2.5 grid grid-cols-2 grid-flow-dense auto-rows-max md:grid-cols-3 lg:grid-cols-4">
             {[
                 gallery_1,
                 gallery_2,

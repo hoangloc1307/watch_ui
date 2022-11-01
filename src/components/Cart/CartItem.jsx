@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import Button from '../Button';
+import QuantityChange from '../Button/QuantityChange';
 
 export default function CartItem({ product }) {
     const handleAmountChange = e => {
@@ -19,23 +19,12 @@ export default function CartItem({ product }) {
                 </p>
             </div>
             {/* Amount counter */}
-            <div className="flex flex-col items-center w-9">
-                <Button
-                    className="w-full h-full p-0 bg-opacity-50 hover:bg-opacity-60 active:bg-opacity-70"
-                    background
-                    onClick={handleAmountChange}
-                >
-                    <span className="material-symbols-outlined text-base">add</span>
-                </Button>
-                <span className="block text-center text-sm my-1 cursor-default">{product.amount}</span>
-                <Button
-                    className="w-full h-full p-0 bg-opacity-50 hover:bg-opacity-60 active:bg-opacity-70"
-                    background
-                    onClick={handleAmountChange}
-                >
-                    <span className="material-symbols-outlined text-base">remove</span>
-                </Button>
-            </div>
+            <QuantityChange
+                value={product.amount}
+                onIncrease={handleAmountChange}
+                onDecrease={handleAmountChange}
+                className="w-9"
+            />
         </Link>
     );
 }

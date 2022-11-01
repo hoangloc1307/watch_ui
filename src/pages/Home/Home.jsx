@@ -10,16 +10,18 @@ const Home = () => {
             <Hero />
 
             {/* Selling products */}
-            <ProductContainer
-                title={'Selling Products'}
-                products={[
-                    { image: product1_0, name: 'Cart Item 1 With Long Name', price: 3100000, amount: 1 },
-                    { image: product2_0, name: 'Cart Item 2 Short Name ', price: 2990000, amount: 12 },
-                    { image: product3_0, name: 'Cart Item 3 ', price: 2890000, amount: 4 },
-                    { image: product4_0, name: 'Cart Item 4 With Long Long Long Name', price: 3200000, amount: 6 },
-                    { image: product5_0, name: 'Cart Item 5 With Name', price: 3000000, amount: 2 },
-                ]}
-            />
+            <div className="my-container">
+                <ProductContainer
+                    title={'Selling Products'}
+                    products={[
+                        { image: product1_0, name: 'Cart Item 1 With Long Name', price: 3100000, amount: 1 },
+                        { image: product2_0, name: 'Cart Item 2 Short Name ', price: 2990000, amount: 12 },
+                        { image: product3_0, name: 'Cart Item 3 ', price: 2890000, amount: 4 },
+                        { image: product4_0, name: 'Cart Item 4 With Long Long Long Name', price: 3200000, amount: 6 },
+                        { image: product5_0, name: 'Cart Item 5 With Name', price: 3000000, amount: 2 },
+                    ]}
+                />
+            </div>
 
             {/* About Dyoss */}
             <div className="my-container py-20 relative text-white text-center">
@@ -51,29 +53,31 @@ const Home = () => {
                 <img src={banner1} alt="Banner 1" className="absolute top-0 left-0 z-[-2] object-cover w-full h-full" />
             </div>
 
-            {/* Man's watches */}
-            <ProductContainer
-                title={"man's watches"}
-                products={[
-                    { image: product1_0, name: 'Cart Item 1 With Long Name', price: 3100000, amount: 1 },
-                    { image: product2_0, name: 'Cart Item 2 Short Name ', price: 2990000, amount: 12 },
-                    { image: product3_0, name: 'Cart Item 3 ', price: 2890000, amount: 4 },
-                    { image: product4_0, name: 'Cart Item 4 With Long Long Long Name', price: 3200000, amount: 6 },
-                    { image: product5_0, name: 'Cart Item 5 With Name', price: 3000000, amount: 2 },
-                ]}
-            />
+            <div className="my-container">
+                {/* Man's watches */}
+                <ProductContainer
+                    title={"man's watches"}
+                    products={[
+                        { image: product1_0, name: 'Cart Item 1 With Long Name', price: 3100000, amount: 1 },
+                        { image: product2_0, name: 'Cart Item 2 Short Name ', price: 2990000, amount: 12 },
+                        { image: product3_0, name: 'Cart Item 3 ', price: 2890000, amount: 4 },
+                        { image: product4_0, name: 'Cart Item 4 With Long Long Long Name', price: 3200000, amount: 6 },
+                        { image: product5_0, name: 'Cart Item 5 With Name', price: 3000000, amount: 2 },
+                    ]}
+                />
 
-            {/* Woman's watches */}
-            <ProductContainer
-                title={"woman's watches"}
-                products={[
-                    { image: product1_0, name: 'Cart Item 1 With Long Name', price: 3100000, amount: 1 },
-                    { image: product2_0, name: 'Cart Item 2 Short Name ', price: 2990000, amount: 12 },
-                    { image: product3_0, name: 'Cart Item 3 ', price: 2890000, amount: 4 },
-                    { image: product4_0, name: 'Cart Item 4 With Long Long Long Name', price: 3200000, amount: 6 },
-                    { image: product5_0, name: 'Cart Item 5 With Name', price: 3000000, amount: 2 },
-                ]}
-            />
+                {/* Woman's watches */}
+                <ProductContainer
+                    title={"woman's watches"}
+                    products={[
+                        { image: product1_0, name: 'Cart Item 1 With Long Name', price: 3100000, amount: 1 },
+                        { image: product2_0, name: 'Cart Item 2 Short Name ', price: 2990000, amount: 12 },
+                        { image: product3_0, name: 'Cart Item 3 ', price: 2890000, amount: 4 },
+                        { image: product4_0, name: 'Cart Item 4 With Long Long Long Name', price: 3200000, amount: 6 },
+                        { image: product5_0, name: 'Cart Item 5 With Name', price: 3000000, amount: 2 },
+                    ]}
+                />
+            </div>
         </>
     );
 };
