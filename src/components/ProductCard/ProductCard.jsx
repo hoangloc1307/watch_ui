@@ -4,14 +4,14 @@ import Button from '../Button';
 const ProductCard = ({ product }) => (
     <Link
         to="/product/abc"
-        className="block w-full max-w-[200px] p-2 mt-20 mx-auto bg-white rounded-lg shadow-[4px_4px_12px_#d9d9d9,-4px_-4px_12px_#ffffff]"
+        className="block w-full max-w-[200px] p-2 mt-14 mx-auto bg-white rounded-lg shadow-[4px_4px_12px_#d9d9d9,-4px_-4px_12px_#ffffff] md:mt-20"
     >
         {/* Image */}
         <div className="relative text-center">
             <img
                 src={product.image}
                 alt={product.name}
-                className="aspect-square object-contain max-w-[100px] inline -mt-20 md:max-w-[150px]"
+                className="aspect-square object-contain max-w-[100px] inline -mt-14 md:max-w-[150px] md:-mt-20"
             />
             <span className="relative block w-1/2 max-w-[100px] h-5 bg-black blur opacity-10 rounded-[50%] left-1/2 [transform:rotateX(70deg)_translateX(-50%)]" />
         </div>

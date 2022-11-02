@@ -10,6 +10,7 @@ export default function ProductDetail() {
             </div>
             {/* Content */}
             <div className="mt-5 md:w-1/2">
+                {/* Name & price */}
                 <div>
                     <h2 className="capitalize text-lg font-medium">Product Name So Long</h2>
                     <p className="text-primary font-medium">
@@ -19,6 +20,7 @@ export default function ProductDetail() {
                         Add to cart
                     </Button>
                 </div>
+                {/* Description */}
                 <h3 className="mt-10 mb-2 border-b border-primary text-primary text-sm md:text-base">About</h3>
                 <p className="text-xs leading-5 md:text-sm">
                     The extremely eye-catching product has just been "launched" of Dyoss summer 2019. With a completely
@@ -26,6 +28,7 @@ export default function ProductDetail() {
                     of simplicity and timeless modernity. The sleekness of the design, as well as the charm that the
                     watch possesses, will make you feel satisfied when you have this accessory on your wrist.
                 </p>
+                {/* Features */}
                 <h3 className="mt-10 mb-2 border-b border-primary text-primary text-sm md:text-base">Features</h3>
                 <ul className="text-xs list-disc list-inside md:text-sm">
                     <li className="mt-0.5">Diameter 40mm - for Men.</li>

@@ -38,12 +38,6 @@ const Hero = () => {
                 onClick={showVideo ? handleShowVideo : null}
             ></span>
             {/* View video button */}
-            {/* <span
-                    className="material-symbols-outlined absolute bottom-2 right-2 z-[1] text-white p-2 cursor-pointer"
-                    onClick={handleShowVideo}
-                >
-                    play_arrow
-                </span> */}
             <div className="absolute bottom-0 right-0 text-white">
                 <Button icon="play_arrow" onClick={handleShowVideo} />
             </div>

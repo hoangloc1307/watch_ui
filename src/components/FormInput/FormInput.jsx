@@ -2,14 +2,14 @@ import { memo } from 'react';
 
 export default memo(function FormInput({ register, name, error, ...rest }) {
     return (
-        <div className={`relative ${error ? 'mb-9' : 'mb-5'}`}>
+        <div className={`relative ${error ? 'mb-10' : 'mb-5'} text-white`}>
             <input
                 {...register(name)}
                 type={rest.type}
                 id={name}
                 placeholder={rest.placeholder}
                 aria-invalid={error ? 'true' : 'false'}
-                className={`block w-full bg-transparent border outline-none text-white text-sm p-2.5 pl-9 rounded-lg peer aria-invalid:border-red-500 placeholder:text-white focus:border-primary`}
+                className={`block w-full bg-transparent border outline-none text-sm p-2.5 pl-9 rounded-lg peer aria-invalid:border-red-500 placeholder:text-inherit focus:border-primary focus:bg-primary focus:text-white`}
             />
             <label
                 htmlFor={name}
@@ -18,7 +18,7 @@ export default memo(function FormInput({ register, name, error, ...rest }) {
             >
                 {rest.placeholder}
             </label>
-            <span className="material-symbols-outlined text-white text-[20px] absolute left-2 top-1/2 -translate-y-1/2 pointer-events-none empty:hidden">
+            <span className="material-symbols-outlined text-[20px] absolute left-2 top-1/2 -translate-y-1/2 pointer-events-none peer-focus:text-white empty:hidden">
                 {rest.icon}
             </span>
             {error && <p className="text-red-400 text-sm absolute top-[calc(100%+3px)] left-2">Error: {error}</p>}
