@@ -21,6 +21,7 @@ const schema = yup
         cityCode: yup.string().required(),
         districtCode: yup.string().required(),
         wardCode: yup.string().required(),
+        note: yup.string(),
     })
     .required();
 
@@ -37,17 +38,8 @@ export default function Checkout() {
         watch,
         setValue,
         getValues,
+        resetField,
     } = useForm({
-        defaultValues: {
-            name: '',
-            email: '',
-            phone: '',
-            address: '',
-            cityCode: '',
-            districtCode: '',
-            wardCode: '',
-            note: '',
-        },
         resolver: yupResolver(schema),
     });
 
@@ -122,13 +114,30 @@ export default function Checkout() {
 
     // Handle submit
     const onSubmit = data => {
-        alert(data);
-        navigate('/');
+        alert(
+            `name: ${data.name}
+            email: ${data.email}
+            phone: ${data.phone}
+            address: ${data.address}
+            city: ${data.city}
+            district: ${data.district}
+            ward: ${data.ward}
+            note: ${data.note}`
+        );
+        // navigate('/');
+        resetField('name');
+        resetField('email');
+        resetField('phone');
+        resetField('address');
+        resetField('cityCode');
+        resetField('districtCode');
+        resetField('wardCode');
+        resetField('note');
+        setOptions({ ...options, districts: [], wards: [] });
     };
 
     const onError = data => {
         for (const key of Object.keys(data)) {
-            console.log(key);
             setFocus(key);
             break;
         }
