@@ -3,20 +3,19 @@ export default function FormSelect({ register, name, options, error, ...rest }) 
         <div className={`relative ${error ? 'mb-10' : 'mb-5'}`}>
             <select
                 {...register(name)}
+                onChange={rest.onChange || register(name).onChange}
+                onBlur={rest.onBlur || register(name).onBlur}
                 aria-invalid={error ? 'true' : 'false'}
                 className={`block w-full bg-transparent border outline-none text-sm p-2.5 pl-9 rounded-lg peer aria-invalid:border-red-500 placeholder:text-inherit focus:border-primary focus:bg-primary focus:text-white`}
                 value={rest.currentValue || ''}
             >
-                {!rest.currentValue && (
-                    <option value="" className="py-1">
-                        {rest.placeholder}
-                    </option>
-                )}
-                {options?.map(item => (
-                    <option key={item.value} value={item.value} className="py-1">
-                        {item.display}
-                    </option>
-                ))}
+                {(!rest.currentValue || options.length === 0) && <option value="">{rest.placeholder}</option>}
+                {options.length > 0 &&
+                    options.map(item => (
+                        <option key={item.value} value={item.value}>
+                            {item.display}
+                        </option>
+                    ))}
             </select>
             <label
                 htmlFor={name}

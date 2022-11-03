@@ -12,6 +12,7 @@ export default memo(
         let styleButton = '';
         let styleIcon = '';
 
+        // Detect to/href to use Link or <a>
         if (to) {
             Tag = Link;
             props.to = to;
@@ -22,11 +23,14 @@ export default memo(
 
         // Style
         if (children && !icon) {
+            //Only text
             styleButton += 'px-4 text-sm h-8';
         } else if (!children && icon) {
+            //Only icon
             styleButton += 'inline-flex justify-center items-center w-10 h-10 hover:text-primary';
             styleIcon += 'text-[24px]';
         } else if (children && icon) {
+            //Text and icon
             styleButton += 'inline-flex justify-center items-center px-4 text-sm h-8 gap-1';
             styleIcon += 'text-[16px]';
         }
